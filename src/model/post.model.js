@@ -3,14 +3,12 @@ const pool = require("@/config/database");
 const findAll = async (limit, offset, condition = {}) => {
   try {
     const queryStr = Object.entries(condition)
-      .filter(([_, value]) => {
-        value !== undefined;
-      })
+      .filter(([_, value]) => value !== undefined)
       .map(([key, value]) => {
         value = typeof value === "number" ? value : `"${value}"`;
         return `${key}=${value}`;
       })
-      .join("and");
+      .join(" and ");
     console.log(limit, offset);
 
     const [rows] = await pool.query(
