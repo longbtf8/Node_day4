@@ -10,6 +10,7 @@ function responseFormat(req, res, next) {
     res.success(rows, 200, { pagination });
   };
   res.error = (status = 500, message, error = null) => {
+    console.log(message, status, error);
     res.status(status).json({
       status: "error",
       error,

@@ -9,9 +9,7 @@ const findAll = async (req, res) => {
 
     res.paginate(result);
   } catch (error) {
-    res.error({
-      message: "Resource not found",
-    });
+    res.error(404, (message = "Resource not found"));
   }
 };
 module.exports = { findAll };
