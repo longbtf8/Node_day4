@@ -9,7 +9,6 @@ const findAll = async (limit, offset, condition = {}) => {
         return `${key}=${value}`;
       })
       .join(" and ");
-    console.log(limit, offset);
 
     const [rows] = await pool.query(
       `SELECT * FROM posts ${queryStr ? `where ${queryStr}` : ""} LIMIT ${limit} OFFSET ${offset};`,

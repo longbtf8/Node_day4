@@ -11,6 +11,8 @@ class PaginationService {
         current_page: page,
         total: total,
         per_page: limit,
+        from: null,
+        to: null,
       };
       if (rows.length) {
         ((pagination.from = offset + 1),
